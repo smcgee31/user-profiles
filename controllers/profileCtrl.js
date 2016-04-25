@@ -22,13 +22,22 @@ var profiles = [
 ];
 
 module.exports = {
-    friendArray: function(req, res, next) {
-        var yourArrayOfFriendObjects = [];
+    getFriends: function(req, res, next) {
+        var friendsArray = [];
         console.log(req.session.currentUser);
-        yourArrayOfFriendObjects.push(req.session.currentUser.friends);
+        friendsArray.push(req.session.currentUser.friends);   //  <-- HERE
         res.status(200).send({
             currentUser: req.session.currentUser,
-            friends: yourArrayOfFriendObjects
+            friends: friendsArray
         });
     }
 };
+
+// ------- the following might be better logic @ 'HERE'  -----------
+// req.session.currentUser.friends.forEach(function(friend){
+//         profiles.forEach(function(profile){
+//          if(friend === profile.name){
+//            friendsArray.push(profile);
+//          }
+//      });
+//  });

@@ -25,7 +25,7 @@ app.use(session({
 
 
 app.post('/api/login', userCtrl.login);
-app.get('/api/profiles', profileCtrl.friendArray);
+app.get('/api/profiles', profileCtrl.getFriends);
 
 
 

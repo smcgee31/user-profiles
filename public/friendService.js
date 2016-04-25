@@ -4,17 +4,12 @@ angular.module('userProfiles')
 
         login: function( user ) {
         /* FIX ME */
-            return $http({
-                method: post,
-
-            });
+            return $http.post('api/login', user);
         },
 
         getFriends: function() {
-        /* FIX ME */
-        return $http({
-            method: GET,
-        });
-        }
+            /* FIX ME */
+            return $http.get('api/profiles');
+        }  // IS A PROMMISE NOT NEEDED?
     };
 });
